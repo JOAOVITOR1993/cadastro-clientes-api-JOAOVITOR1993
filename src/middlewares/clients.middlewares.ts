@@ -6,6 +6,7 @@ import { AppError } from "../erros"
 
 const validateEmailExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const clientRepository: iClientRepo = AppDataSource.getRepository(Client)
+    const clientUserId: number = Number(res.locals.userId)
 
     const findEmail = await clientRepository.findOne({
         where: {
@@ -14,7 +15,7 @@ const validateEmailExists = async (req: Request, res: Response, next: NextFuncti
         withDeleted: true
     })
 
-    if (findEmail && req.body.email) {
+    if (findEmail && req.body.email && clientUserId !== findEmail.id) {
         throw new AppError("Email already exists", 409)
     }
 
@@ -23,6 +24,7 @@ const validateEmailExists = async (req: Request, res: Response, next: NextFuncti
 
 const validatePhoneExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const clientRepository: iClientRepo = AppDataSource.getRepository(Client)
+    const clientUserId: number = Number(res.locals.userId)
 
     const findPhone = await clientRepository.findOne({
         where: {
@@ -31,7 +33,7 @@ const validatePhoneExists = async (req: Request, res: Response, next: NextFuncti
         withDeleted: true
     })
 
-    if (findPhone && req.body.phone) {
+    if (findPhone && req.body.phone && clientUserId !== findPhone.id) {
         throw new AppError("Phone already exists", 409)
     }
 

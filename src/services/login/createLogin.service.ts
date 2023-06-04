@@ -6,8 +6,9 @@ import { iClientRepo } from "../../interfaces/clients.interfaces"
 import iLoginRequest from "../../interfaces/login.interfaces"
 import jwt from "jsonwebtoken"
 import "dotenv/config"
+import { returnClientSchema } from "../../schemas/clients.schemas"
 
-const createLoginService = async (loginData: iLoginRequest): Promise<string> => {
+const createLoginService = async (loginData: iLoginRequest): Promise<object> => {
 
     const userRepository: iClientRepo = AppDataSource.getRepository(Client)
 
@@ -38,7 +39,12 @@ const createLoginService = async (loginData: iLoginRequest): Promise<string> => 
         }
     )
 
-    return token
+    const user = returnClientSchema.parse(findClient)
+
+    return {
+        token: token, 
+        user: user
+    }
 
 }
 
