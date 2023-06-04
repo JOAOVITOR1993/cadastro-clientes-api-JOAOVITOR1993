@@ -14,7 +14,7 @@ const removeContactService = async (contactId: number): Promise<void> => {
         throw new AppError("Contact already deleted", 400)
     }
 
-    await contactRepository.softRemove(contact!)
+    await contactRepository.remove(contact!)
 
 }
 
