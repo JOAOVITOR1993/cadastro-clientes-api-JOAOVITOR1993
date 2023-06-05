@@ -9,7 +9,7 @@ Yarn (opcional, mas recomendado)
 
 Configuração do Projeto:
 
-1 - Clone este repositório: git clone git@github.com: git@github.com:JOAOVITOR1993/cadastro-clientes-api-JOAOVITOR1993.git
+1 - Clone este repositório: git clone git@github.com:JOAOVITOR1993/cadastro-clientes-api-JOAOVITOR1993.git
 
 2 - Acesse o diretório do projeto: cd cadastro-clientes-api-JOAOVITOR1993
 
@@ -40,8 +40,6 @@ Pg (versão 8.9.0)
 Reflect-metadata (versão 0.1.13)
 Typeorm (versão 0.3.10)
 Zod (versão 3.20.6)
-
-
 
 
 
