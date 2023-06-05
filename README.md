@@ -1,6 +1,6 @@
 # 🏁 Desafio FullStack: Lista de Clientes - API
 
-O projeto trata-se de uma Api RESTful utilizando Typeorm e , que consiste em um CRUD de clientes e contatos, com autenticação e validações. O armazenamento dos dados é feito em um banco de dados PostgreSql.
+O projeto trata-se de uma Api RESTful utilizando Typeorm, que consiste em um CRUD de clientes e contatos, com autenticação e validações. O armazenamento dos dados é feito em um banco de dados PostgreSql.
 
 Pré-requisitos:
 
