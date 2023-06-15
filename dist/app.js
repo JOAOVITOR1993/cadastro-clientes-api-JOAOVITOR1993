@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+require("express-async-errors");
+const express_1 = __importDefault(require("express"));
+const erros_1 = require("./erros");
+const clients_routes_1 = __importDefault(require("./routers/clients.routes"));
+const login_routes_1 = __importDefault(require("./routers/login.routes"));
+const contacts_routes_1 = __importDefault(require("./routers/contacts.routes"));
+const cors_1 = __importDefault(require("cors"));
+const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
+app.use(express_1.default.json());
+app.use("/clients", clients_routes_1.default);
+app.use("/login", login_routes_1.default);
+app.use("/contacts", contacts_routes_1.default);
+app.use(erros_1.handleErros);
+exports.default = app;
